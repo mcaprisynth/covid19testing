@@ -11,13 +11,13 @@ const Covid19Examinations: Examination[] = data;
 // getting all examinations
 const getAll = async (req: Request, res: Response) => {
     // get examinations
-    const pageSize = req.query.pageSize ? req.query.pageSize : 0 ;
-    const page = req.query.page ? req.query.page : 0;
+    const pageSize = req.query.pageSize as unknown as number;
+    const page = req.query.page as unknown as number;
 
     let examinations;
 
-    if(pageSize != 0 && page != 0)
-        examinations = Covid19Examinations.slice((+page - 1) * +pageSize, +page * +pageSize);
+    if(pageSize !== undefined && page !== undefined)
+        examinations = Covid19Examinations.slice((page - 1) * pageSize, page * pageSize);
     else
         examinations = Covid19Examinations;
     
