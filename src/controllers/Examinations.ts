@@ -11,7 +11,17 @@ const Covid19Examinations: Examination[] = data;
 // getting all examinations
 const getAll = async (req: Request, res: Response) => {
     // get examinations
-    return res.send(Covid19Examinations);
+    const pageSize = req.query.pageSize ? req.query.pageSize : 0 ;
+    const page = req.query.page ? req.query.page : 0;
+
+    let examinations;
+
+    if(pageSize != 0 && page != 0)
+        examinations = Covid19Examinations.slice((+page - 1) * +pageSize, +page * +pageSize);
+    else
+        examinations = Covid19Examinations;
+    
+    return res.send(examinations);
 };
 
 // getting all examinations by location id
