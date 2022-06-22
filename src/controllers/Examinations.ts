@@ -38,8 +38,19 @@ const getByLocationId = async (req: Request, res: Response) => {
 // getting stats
 const getStats = async (req: Request, res: Response) => {
     // get stats
+
+    const dateFrom = req.query.dateFrom as unknown as Date;
+    const dateTo = req.query.dateTo as unknown as Date;
+
+    let examinations;
+
+    if(dateFrom !== undefined && dateTo !== undefined)
+        examinations = Covid19Examinations.filter((item: Examination) => item.date >= dateFrom && item.date <= dateTo);
+    else
+        examinations = Covid19Examinations;
+
     let stats : Stat[] = [];
-    Covid19Examinations.forEach((item) => {
+    examinations.forEach((item: Examination) => {
         let locationId = item.locationId;
         let pending = 0;
         let negative = 0;
