@@ -1,5 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
-import axios, { AxiosResponse } from 'axios';
+import { Request, Response } from 'express';
 import { Examination } from '../models/Examination';
 import { Stat } from '../models/Stat';
 
