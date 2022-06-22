@@ -9,7 +9,17 @@
 			"name": "examinations",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:6060/examinations",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"examinations"
+					]
+				}
 			},
 			"response": []
 		},
@@ -17,7 +27,18 @@
 			"name": "examination/{locationId}",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:6060/examinations/1",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"examinations",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -25,7 +46,18 @@
 			"name": "examinations/stats",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:6060/examinations/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"examinations",
+						"stats"
+					]
+				}
 			},
 			"response": []
 		},
@@ -33,7 +65,27 @@
 			"name": "examinations with pagination",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:6060/examinations?pageSize=10&page=2",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"examinations"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -41,7 +93,28 @@
 			"name": "examinations/stats with date range",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:6060/examinations/stats?dateFrom=2020-05-31T14:00:00.000Z&dateTo=2020-06-12T14:00:00.000Z",
+					"host": [
+						"localhost"
+					],
+					"port": "6060",
+					"path": [
+						"examinations",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2020-05-31T14:00:00.000Z"
+						},
+						{
+							"key": "dateTo",
+							"value": "2020-06-12T14:00:00.000Z"
+						}
+					]
+				}
 			},
 			"response": []
 		}
