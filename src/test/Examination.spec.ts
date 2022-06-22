@@ -1,6 +1,10 @@
 import { expect } from 'chai';
 import 'mocha';
 
+var chai = require("chai");
+chai.should();
+chai.use(require('chai-things'));
+
 const data = require('../hardCodedData/db.json');
 const Covid19Examinations = data;
 const { getAllExaminations, getExaminationsByLocationId, getExaminationStats } = require('../managers/Examination');
@@ -49,7 +53,7 @@ describe('Examination test', () => {
     let examinations = getExaminationsByLocationId(Covid19Examinations, locationId);
 
     //THEN
-    expect(examinations).to.have.length.greaterThan(0);
+    examinations.should.all.have.property('locationId', locationId);
     });
 
     it('should return a list of overall stats', () => {
